@@ -12,6 +12,7 @@ services:
     restart: always
     volumes:
       - '../src:/code'
+      - "./config/php/certs:/etc/ssl/mysql"
     environment:
       DB_HOST: "mysql"
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
