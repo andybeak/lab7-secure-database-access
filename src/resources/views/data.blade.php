@@ -2,7 +2,6 @@
 
 @foreach ($data as $datum)
 
-    <h2>$datum['id']</h2>
     <ul>
     @foreach ($datum as $field => $value)
         <li>
