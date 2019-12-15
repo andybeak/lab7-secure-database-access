@@ -5,10 +5,17 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
+
+    /**
+     * The name of admin role
+     */
+    const ADMIN_ROLE = 'Admin';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +43,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Return boolean true if the user has the admin role assigned
+     */
+    public function isAdmin()
+    {
+        foreach ($this->roles()->get() as $role) {
+            if ($role->name === self::ADMIN_ROLE) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
