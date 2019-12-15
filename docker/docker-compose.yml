@@ -15,10 +15,13 @@ services:
     environment:
       DB_HOST: "mysql"
       DB_PORT: 3306
+      DB_DATABASE: "employees"
       APPLICATION_USER: "${APPLICATION_USER}"
       APPLICATION_PASSWORD: "${APPLICATION_PASSWORD}"
       ADMIN_USER: "${ADMIN_USER}"
       ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
 
   mysql:
     image: mysql:5.7
