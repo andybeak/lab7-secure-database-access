@@ -14,8 +14,11 @@ services:
       - '../src:/code'
     environment:
       DB_HOST: "mysql"
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
       DB_PORT: 3306
+      APPLICATION_USER: "${APPLICATION_USER}"
+      APPLICATION_PASSWORD: "${APPLICATION_PASSWORD}"
+      ADMIN_USER: "${ADMIN_USER}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
 
   mysql:
     image: mysql:5.7
